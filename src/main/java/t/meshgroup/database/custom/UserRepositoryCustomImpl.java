@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -80,7 +81,7 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom {
     }
 
     public void deleteFromCache(Long userId) {
-        User user = uniqueCache.values().stream().filter(it -> it.getId() == userId).collect(Collectors.toList()).stream().findFirst().get();
-        uniqueCache.values().remove(user);
+        Optional<User> user = uniqueCache.values().stream().filter(it -> it.getId() == userId).collect(Collectors.toList()).stream().findFirst();
+        user.ifPresent(value -> uniqueCache.values().remove(value));
     }
 }
