@@ -66,8 +66,6 @@ public class DBInitPostgreSQL implements CommandLineRunner {
     }
 
     private static void initAccountBalanceHandler(Connection conn, Statement statement) throws SQLException, IOException {
-
-
         ResultSet rs = statement.executeQuery(
                 "select exists(select 1 from information_schema.domains where domain_name = 'account_balance_domain')"
         );
@@ -78,7 +76,6 @@ public class DBInitPostgreSQL implements CommandLineRunner {
         Resource initScriptResource = new ClassPathResource("databases/init/postgresql/initAccountHandler.sql");
         if (initScriptResource.contentLength() > 0 && !conn.getTypeMap().containsKey(UtilPostgreSQLDomains.ACCOUNT_BALANCE_DOMAIN))
             ScriptUtils.executeSqlScript(conn, initScriptResource);
-
     }
 
     private static void initPhoneHandler(Connection conn, Statement statement) throws SQLException, IOException {
