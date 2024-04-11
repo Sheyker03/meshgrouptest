@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * In future use Cacheable from Spring + add cache for everyone email and phone by dateOfBirthRequest
+ */
 @SuppressWarnings("unused")
 public class UserRepositoryCustomImpl implements UserRepositoryCustom {
 

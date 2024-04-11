@@ -37,6 +37,9 @@ import java.util.concurrent.ThreadLocalRandom;
 @Component
 @RequiredArgsConstructor
 @Profile("!test")
+/**
+ * Just for test application :D
+ * */
 public class DBInitPostgreSQL implements CommandLineRunner {
     private final UserRepository userRepository;
     private final EmailRepository emailRepository;
